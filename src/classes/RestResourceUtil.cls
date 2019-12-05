@@ -30,7 +30,7 @@ public class RestResourceUtil {
 
         for (Database.UpsertResult upsertResult : res) {
             String msg = Label.Created;
-            if (upsertResult.errors.size() > 0) { //isSuccess
+            if (!upsertResult.success) {
                 msg = upsertResult.errors[0].message;
             } else if (!upsertResult.created) {
                 msg = Label.Updated;
